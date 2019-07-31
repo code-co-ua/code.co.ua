@@ -29,9 +29,7 @@
     "marked": "^0.6.0",
     "nprogress": "^0.2.0",
     "prismjs": "^1.15.0",
-    "pusher-js": "^4.3.1",
     "simplemde": "^1.11.2",
-    "vue-filepond": "^2.1.6",
     "vue-monaco-cdn": "^1.0.1",
     "vue-sweetalert2": "^1.6.4",
     "vue-toasted": "^1.1.25"

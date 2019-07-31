@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use JD\Cloudder\Facades\Cloudder;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Orchid\Platform\Models\User as Authenticatable;
 use Laravelista\Comments\Commenter;
 
 class User extends Authenticatable
