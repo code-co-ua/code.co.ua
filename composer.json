@@ -15,11 +15,8 @@
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
         "laravelista/comments": "^3.1.1",
-        "orchid/platform": "^6.1",
         "owen-it/laravel-auditing": "^9.3",
-        "rtconner/laravel-tagging": "^3.2",
-        "spatie/laravel-sitemap": "^5.5",
-        "symfony/yaml": "^4.1"
+        "rtconner/laravel-tagging": "^3.2"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.6",

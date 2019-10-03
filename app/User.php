@@ -2,12 +2,12 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use JD\Cloudder\Facades\Cloudder;
-use Orchid\Platform\Models\User as Authenticatable;
 use Laravelista\Comments\Commenter;
 
-class User extends Authenticatable
+class User extends Model
 {
     use Notifiable, Commenter;
 
