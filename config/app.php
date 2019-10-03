@@ -150,7 +150,7 @@ return [
         Illuminate\Pagination\PaginationServiceProvider::class,
         Illuminate\Pipeline\PipelineServiceProvider::class,
         Illuminate\Queue\QueueServiceProvider::class,
-        //Illuminate\Redis\RedisServiceProvider::class,
+        Illuminate\Redis\RedisServiceProvider::class,
         Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
         Illuminate\Session\SessionServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
@@ -161,7 +161,6 @@ return [
          * Package Service Providers...
          */
         JD\Cloudder\CloudderServiceProvider::class,
-//        SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class,
         Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
         Conner\Tagging\Providers\TaggingServiceProvider::class,

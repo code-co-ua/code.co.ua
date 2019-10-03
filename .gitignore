@@ -13,5 +13,4 @@ npm-debug.log
 yarn-error.log
 .env
 .env.production
-composer.lock
 deploy.php

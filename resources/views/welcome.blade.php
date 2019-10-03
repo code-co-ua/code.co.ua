@@ -64,8 +64,6 @@
             <a href="{{ route('courses.index') }}" id="navAction" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">Курси</a>
         </div>
     </div>
-
-    <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
 </nav>
 
 <!--Hero-->
@@ -156,10 +154,10 @@
 </section>
 
 <!--Footer -->
-<footer class="bg-white">
+<footer class="bg-gray-800">
     <div class="container mx-auto px-8">
-        <div class="w-full flex flex-col md:flex-row py-6">
-            <p class="text-black md:mb-6">&copy; 2018-2019. Всі права захишено</p>
+        <div class="w-full flex flex-col md:flex-row py-4">
+            <p class="text-gray-500">&copy; 2018-2019. Всі права захишено</p>
         </div>
     </div>
 </footer>
