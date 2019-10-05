@@ -4,7 +4,7 @@
             <a href="{{ route('home') }}">Мої курси</a>
         </li>
         <li class="breadcrumb-item align-self-center">
-            <a href="{{ route('courses.show', ['id' => $lesson->section->course_id]) }}">
+            <a href="{{ route('courses.show', ['course' => $lesson->section->course_id]) }}">
                 {{ $lesson->section->course->name }}
             </a>
         </li>

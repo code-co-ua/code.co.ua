@@ -2,23 +2,27 @@
 
 @section('title', __('Доступні курси'))
 
+@section('main-class', 'container')
+
 @section('content')
-    <div class="container">
-        <h1 class="text-center">
-            {{ __('Доступні курси') }}
-        </h1>
-        <div class="card-columns">
-            @foreach($courses as $course)
-                <div class="card">
-                    <img class="card-img-top" src="{{ asset($course->image) }}" alt="{{ $course->image }}">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">{{ $course->name }}</h5>
-                        <p class="card-text">{{ $course->description_short }}</p>
-                        <a href="{{ route('courses.show', ['id' => $course->id]) }}"
-                           class="btn btn-primary btn-block">{{ __('НАВЧАТИСЬ') }}</a>
+    <h1 class="page-title mb-1">
+        {{ __('Доступні курси') }}:
+    </h1>
+    <div class="row row-cards row-deck">
+        @foreach($courses as $course)
+            <div class="col-lg-4">
+                <a href="{{ route('courses.show', ['course' => $course->id]) }}" class="text-decoration-none text-reset">
+                    <div class="card d-flex flex-row bg-white shadow-none p-3">
+                        <img src="{{ $course->image }}" alt="{{ $course->name }}">
+                        <div class="card-body p-0 pl-3">
+                            <h4 class="mb-0">
+                                {{ $course->title }}
+                            </h4>
+                            <div class="text-muted">{{ $course->description_short }}</div>
+                        </div>
                     </div>
-                </div>
-            @endforeach
-        </div>
+                </a>
+            </div>
+        @endforeach
     </div>
 @endsection

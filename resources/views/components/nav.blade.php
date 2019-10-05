@@ -12,27 +12,29 @@
 
 <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
     <!-- Left Side Of Navbar -->
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav nav-tabs border-0 mr-auto">
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('courses.index') }}">{{ __('Курси') }}</a>
+            <a class="nav-link {{ active('courses.*') }}" href="{{ route('courses.index') }}">{{ __('Курси') }}</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('articles.index') }}">{{ __('Статті') }}</a>
+            <a class="nav-link {{ active('articles.*') }}" href="{{ route('articles.index') }}">{{ __('Статті') }}</a>
         </li>
     </ul>
 
     <!-- Right Side Of Navbar -->
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('users.index') }}">{{ __('Користувачі') }}</a>
+            <a class="nav-link {{ active('users.index') }}" href="{{ route('users.index') }}">{{ __('Користувачі') }}</a>
         </li>
         <!-- Authentication Links -->
         @guest
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}">{{ __('Увійти') }}</a>
+                <a class="nav-link {{ active('login') }}" href="{{ route('login') }}">{{ __('Увійти') }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('register') }}">{{ __('Зареєструватись') }}</a>
+                <a class="nav-link {{ active('register') }}" href="{{ route('register') }}">
+                    {{ __('Зареєструватись') }}
+                </a>
             </li>
         @else
             <li class="nav-item dropdown">

@@ -1,1 +1,78 @@
-#articles .left-column .nav-pills>li{padding-top:5px}#articles .left-column .nav-pills>li>a{padding:5px;padding-left:30px;padding-right:0;position:relative;padding:7px;padding-left:35px}#articles .left-column .nav-pills>li>a .articles-box{width:10px;height:10px;border-radius:2px;float:left;position:absolute;top:50%;margin-top:-5px;left:10px}#articles .left-column .nav-pills>li>a:focus,#articles .left-column .nav-pills>li>a:hover{background:0 0;text-decoration:none}#articles .left-column .nav-pills>li>a .articles-box{width:20px;height:20px;border-radius:20px;left:5px;top:12px}#articles .left-column .nav-pills>li>a .articles-box:before{content:"";background:#f5f8fa;width:10px;height:10px;position:absolute;border-radius:20px;left:5px;top:5px}#articles .left-column .nav-pills>li>a:hover .articles-box:before{width:0;height:0;left:10px;top:10px;-webkit-transition:all .3s ease;transition:all .3s ease}#addButton{background:#31c3a2;border:2px solid #31c3a2;border-radius:100px;color:#fff;font-weight:700;letter-spacing:1px;padding:10px 16px!important;text-transform:uppercase;-webkit-transform:translateZ(0);transform:translateZ(0);-webkit-transition-property:-webkit-transform;transition-property:-webkit-transform;transition-property:transform;transition-property:transform,-webkit-transform;-webkit-transition-duration:.2s;transition-duration:.2s;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out}#addButton:hover{background:none;-webkit-box-shadow:none!important;box-shadow:none!important;color:#31c3a2}
+#articles .left-column .nav-pills > li {
+  padding-top: 5px;
+}
+
+#articles .left-column .nav-pills > li > a {
+  padding: 5px;
+  padding-left: 30px;
+  padding-right: 0;
+  position: relative;
+  padding: 7px;
+  padding-left: 35px;
+}
+
+#articles .left-column .nav-pills > li > a .articles-box {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  float: left;
+  position: absolute;
+  top: 50%;
+  margin-top: -5px;
+  left: 10px;
+}
+
+#articles .left-column .nav-pills > li > a:focus,
+#articles .left-column .nav-pills > li > a:hover {
+  background: 0 0;
+  text-decoration: none;
+}
+
+#articles .left-column .nav-pills > li > a .articles-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  left: 5px;
+  top: 12px;
+}
+
+#articles .left-column .nav-pills > li > a .articles-box:before {
+  content: "";
+  background: #f5f8fa;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  border-radius: 20px;
+  left: 5px;
+  top: 5px;
+}
+
+#articles .left-column .nav-pills > li > a:hover .articles-box:before {
+  width: 0;
+  height: 0;
+  left: 10px;
+  top: 10px;
+  transition: all 0.3s ease;
+}
+
+#addButton {
+  background: #31C3A2;
+  border: 2px solid #31C3A2;
+  border-radius: 100px;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 10px 16px !important;
+  text-transform: uppercase;
+  transform: translateZ(0);
+  transition-property: transform;
+  transition-duration: 0.2s;
+  transition: all 0.2s ease-in-out;
+}
+
+#addButton:hover {
+  background: none;
+  box-shadow: none !important;
+  color: #31C3A2;
+}
+

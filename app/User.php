@@ -2,12 +2,12 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use JD\Cloudder\Facades\Cloudder;
 use Laravelista\Comments\Commenter;
 
-class User extends Model
+class User extends Authenticatable
 {
     use Notifiable, Commenter;
 
@@ -54,6 +54,19 @@ class User extends Model
     public function lessons()
     {
         return $this->belongsToMany('App\Lesson', 'lesson_user');
+    }
+
+    public function attachCourse(int $id)
+    {
+        auth()->user()->courses()->syncWithoutDetaching($id);
+    }
+
+    public function attachLesson(int $id)
+    {
+        if (!auth()->user()->lessons->contains($id)) {
+            auth()->user()->lessons()->attach($id);
+            auth()->user()->increment('balance');
+        }
     }
 
     public function getAvatarUrlAttribute(){

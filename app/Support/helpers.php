@@ -1,13 +1,6 @@
 <?php
-/**
- * @param string $text
- * @return string
- */
-function parsedown($text)
+
+function parsedown(string $text): string
 {
-    /**
-     * @var Parsedown $parser
-     */
-    $parser = app('parsedown');
-    return $parser->text($text);
+    return app('parsedown')->text($text);
 }

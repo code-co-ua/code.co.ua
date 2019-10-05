@@ -12,13 +12,12 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  * Progress bar on requests
  */
 window.NProgress = require('nprogress');
-// before a request is made start the nprogress
+
 window.axios.interceptors.request.use(config => {
     NProgress.start();
     return config
 });
 
-// before a response is returned stop nprogress
 window.axios.interceptors.response.use(response => {
     NProgress.done();
     return response

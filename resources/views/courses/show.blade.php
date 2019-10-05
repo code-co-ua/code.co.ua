@@ -13,10 +13,6 @@
             vertical-align: middle;
         }
 
-        h1 {
-            border-bottom: #5970ba 4px solid;
-            text-align: center
-        }
 
         .information li {
             font-size: 20px;
@@ -26,14 +22,15 @@
 
 @section('content')
     <div class="container">
-        @php($is_completed = $course->lessons_count === $course->completed_lessons_count)
-        @if($is_completed)
+        @if($course->isCompleted())
             @include('components.courses.completed_alert')
         @endif
 
-        <h1>{{ $course->title }}</h1>
+        <h1 class="page-heading">{{ $course->title }}</h1>
 
-        @include('components.courses.button')
+        <div class="d-md-none d-lg-none">
+            @include('components.courses.button')
+        </div>
 
         <div class="row">
             <div class="col-md-8">
@@ -44,9 +41,11 @@
                 @include('components.courses.list')
                 @include('components.courses.after_list')
             </div>
+
             <div class="col-md-4">
                 @include('components.courses.information')
             </div>
+
             <div class="col-md-12 mt-4">
                 @include('components.comments', [
                     'model' => $course

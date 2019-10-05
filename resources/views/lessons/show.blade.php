@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('title', $lesson->name . ' - ' . $lesson->section->course->name)

@@ -1,51 +1,17 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,600');
-// Variables
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Bootstrap & Tabler UI
+@import '~tabler-ui/src/assets/scss/variables';
 @import 'variables';
-// Bootstrap
 @import '~bootstrap/scss/bootstrap';
+@import 'tabler';
+
+// Libraries
 @import '~prismjs/themes/prism-okaidia.css';
-//Progress bar styles
 @import '~nprogress/nprogress.css';
-//Tags input styles
 @import '~@voerro/vue-tagsinput/dist/style.css';
-//Pages footer
-@import 'footer';
 
-.btn-primary {
-  color: $white !important;
-}
-
-.navbar-white {
-  background-color: $white;
-  box-shadow: 0 2px 4px $shadow-color;
-}
-
-.navbar-white .navbar-nav .nav-link {
-  text-transform: uppercase;
-}
-
-#logo {
-  margin-bottom: -8px;
-  width: 40px;
-}
-
-.content {
-  font-size: 22px;
-}
-
-article img {
-  max-width: 100%;
-}
-
-.list-style-type-none {
-  list-style-type: none;
-}
-
-.border-radius-0 {
-  border-radius: 0;
-}
-
-.text-lg {
-  font-size: 1.2rem;
-}
+// Core features
+@import 'customize';
+@import 'utils';

@@ -1,7 +1,7 @@
 <div class="card mb-3">
     <img class="card-img-top" src="{{ asset($course->image) }}" alt="{{ $course->name }}">
     <div class="card-body">
-        {{--<h2>Про курс</h2>--}}
+        @include('components.courses.button')
         <ul class="pl-2 mb-0 information list-style-type-none">
             <li>
                 <i class="material-icons">attach_money</i> Безкоштовно!

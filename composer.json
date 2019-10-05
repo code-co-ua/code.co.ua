@@ -16,10 +16,12 @@
         "laravel/tinker": "^1.0",
         "laravelista/comments": "^3.1.1",
         "owen-it/laravel-auditing": "^9.3",
-        "rtconner/laravel-tagging": "^3.2"
+        "rtconner/laravel-tagging": "^3.2",
+        "watson/active": "^4.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.6",
+        "facade/ignition": "^1.9",
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
         "itsgoingd/clockwork": "^4.0",

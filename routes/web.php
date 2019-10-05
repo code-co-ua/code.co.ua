@@ -19,10 +19,12 @@ Route::middleware(['auth'])->group(function () {
 //Course
 Route::resource('courses', 'CourseController')->only(['index', 'show']);
 Route::get('courses/{id}/complete', 'CourseController@complete')->middleware('auth')->name('courses.complete');
+
 //Lessons
 Route::get('lessons/{id}', 'LessonController@show')->name('lessons.show');
 Route::get('lessons/{id}/questions', 'LessonController@questions')->name('lessons.questions');
 Route::get('lessons/{id}/exercise', 'ExerciseController@show')->name('lessons.exercise');
+
 //Articles
 Route::resource('articles', 'ArticleController')->except(['destroy']);
 Route::resource('media', 'MediaController')->except([

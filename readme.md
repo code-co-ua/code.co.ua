@@ -9,7 +9,7 @@
 
   [![Status](https://img.shields.io/badge/status-active-success.svg)]() 
   [![GitHub Issues](https://img.shields.io/github/issues/codecoua/code.co.ua.svg)](https://github.com/codecoua/code.co.ua/issues)
-  [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/codecoua/code.co.ua.svg)](https://github.com/codecoua/code.co.ua/pulls)
+  [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/code-co-ua/code.co.ua.svg)](https://github.com/code-co-ua/code.co.ua/pulls)
   [![Website](https://img.shields.io/website/https/code.co.ua.svg)](https://code.co.ua)
 </div>
 
@@ -24,7 +24,7 @@
 - [Getting Started](#getting_started)
 - [Usage](#usage)
 - [Built Using](#built_using)
-- [TODO](https://github.com/codecoua/code.co.ua/projects)
+- [TODO](https://github.com/code-co-ua/code.co.ua/projects/1)
 - [Contributing](../CONTRIBUTING.md)
 - [Authors](#authors)
 
@@ -82,6 +82,6 @@ Give an example
 - [PHP](https://php.net/) - Server language
 
 ## ✍️ Authors <a name = "authors"></a>
-- [@Ostap34JS](https://github.com/Ostap34JS) - Idea & Initial work
+- [Ostap](https://github.com/osbre) - Idea & Initial work
 
-See also the list of [contributors](https://github.com/codecoua/code.co.ua/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/code-co-ua/code.co.ua/contributors) who participated in this project.

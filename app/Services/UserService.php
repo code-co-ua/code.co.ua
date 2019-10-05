@@ -9,41 +9,15 @@ use Illuminate\Support\Facades\Auth;
 
 class UserService
 {
-    /**
-     * @param integer $id
-     */
-    public function attachCourse($id)
-    {
-        auth()->user()->courses()->syncWithoutDetaching($id);
-    }
-
-    /**
-     * @param integer $id
-     */
-    public function attachLesson($id)
-    {
-        if (!auth()->user()->lessons->contains($id)) {
-            auth()->user()->lessons()->attach($id);
-            auth()->user()->increment('balance');
-        }
-    }
-
     public function getCompletedLessons()
     {
-        if (!Auth::check()) {
-            return;
-        }
-
-        $completedLessons =
-            DB::table('lesson_user')
+        return DB::table('lesson_user')
                 ->select('lesson_id')
                 ->whereIn('lesson_id', function ($query) {
                     $query->select('id')->from('lessons')->whereIn('section_id', function ($query) {
                         $query->select('id')->from('sections')->whereRaw('`sections`.`course_id` = `courses`.`id`');
                     });
                 });
-
-        return $completedLessons;
     }
 
     public function handleUploadedImage(Request $request)

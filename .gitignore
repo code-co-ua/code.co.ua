@@ -1,4 +1,8 @@
 /node_modules
+/public/js/*
+/public/css/*
+/public/fonts/*
+/public/images/vendor/*
 /public/hot
 /public/storage
 /public/sitemap.xml

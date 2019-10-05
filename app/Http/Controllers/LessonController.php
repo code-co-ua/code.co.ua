@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Lesson;
 use App\Services\LessonService;
 use App\Services\UserService;
+use Illuminate\Support\Facades\Auth;
 
 class LessonController extends Controller
 {
@@ -42,9 +43,9 @@ class LessonController extends Controller
             ->findOrFail($id);
         $completedLessons = $this->userService->getCompletedLessons();
 
-        if (auth()->check()) {
-            $this->userService->attachLesson($id);
-            $this->userService->attachCourse($lesson->section->course_id);
+        if (Auth::check()) {
+            Auth::user()->attachLesson($id);
+            Auth::user()->attachCourse($lesson->section->course_id);
         }
 
         $previous = $this->lessonService->getPrevious($lesson);

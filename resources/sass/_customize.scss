@@ -1,0 +1,30 @@
+.fe {
+  vertical-align:middle;
+}
+
+.btn-primary {
+  color: $white !important;
+}
+
+.navbar-white {
+  background-color: $white;
+  box-shadow: 0 2px 4px $shadow-color;
+}
+
+.navbar-white .navbar-nav .nav-link {
+  text-transform: uppercase;
+}
+
+#logo {
+  margin-bottom: -8px;
+  width: 40px;
+}
+
+.content {
+  font-size: 22px;
+}
+
+article img {
+  max-width: 100%;
+}
+
