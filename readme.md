@@ -8,7 +8,7 @@
 <div align="center">
 
   [![Status](https://img.shields.io/badge/status-active-success.svg)]() 
-  [![GitHub Issues](https://img.shields.io/github/issues/codecoua/code.co.ua.svg)](https://github.com/codecoua/code.co.ua/issues)
+  [![GitHub Issues](https://img.shields.io/github/issues/code-co-ua/code.co.ua.svg)](https://github.com/codecoua/code.co.ua/issues)
   [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/code-co-ua/code.co.ua.svg)](https://github.com/code-co-ua/code.co.ua/pulls)
   [![Website](https://img.shields.io/website/https/code.co.ua.svg)](https://code.co.ua)
 </div>
