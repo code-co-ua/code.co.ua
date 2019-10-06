@@ -11,17 +11,22 @@
     <div class="row row-cards row-deck">
         @foreach($courses as $course)
             <div class="col-lg-4">
-                <a href="{{ route('courses.show', ['course' => $course->id]) }}" class="text-decoration-none text-reset">
-                    <div class="card d-flex flex-row bg-white shadow-none p-3">
-                        <img src="{{ $course->image }}" alt="{{ $course->name }}">
-                        <div class="card-body p-0 pl-3">
-                            <h4 class="mb-0">
-                                {{ $course->title }}
-                            </h4>
-                            <div class="text-muted">{{ $course->description_short }}</div>
-                        </div>
-                    </div>
-                </a>
+                @include('courses._item', [
+                    'course' => $course,
+                    'route' => route('courses.show', ['course' => $course->id])
+                ])
+            </div>
+        @endforeach
+
+        {{-- TODO: Because there is no way to say "Google, dont index these test content",
+                    we need to use custom keywords in text generations--}}
+        @foreach($fake_courses as $course)
+            <div class="col-lg-4">
+                @include('courses._item', [
+                    'course' => $course,
+                    'route' => '#',
+                    'blur' => true
+                ])
             </div>
         @endforeach
     </div>

@@ -11,6 +11,7 @@
         "arrilot/laravel-widgets": "^3.13",
         "bugsnag/bugsnag-laravel": "^2.17",
         "fideloper/proxy": "^4.2",
+        "joshtronic/php-loremipsum": "^1.0",
         "jrm2k6/cloudder": "^0.6.0",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",

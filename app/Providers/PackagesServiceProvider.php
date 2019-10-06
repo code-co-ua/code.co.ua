@@ -2,9 +2,10 @@
 
 namespace App\Providers;
 
-use Conner\Tagging\Providers\TaggingServiceProvider;
+use App\FakeData\CourseFakeData;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
+use joshtronic\LoremIpsum;
 use Parsedown;
 
 class PackagesServiceProvider extends ServiceProvider
@@ -34,6 +35,8 @@ class PackagesServiceProvider extends ServiceProvider
             return $parsedown;
         });
 
-        $this->app->register(TaggingServiceProvider::class);
+        $this->app->singleton('CourseFakeData', function ($app) {
+            return new CourseFakeData(new LoremIpsum());
+        });
     }
 }

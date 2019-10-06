@@ -1,6 +1,6 @@
 /node_modules
 /public/fonts/*
-/public/js/app.js
+/public/js/*
 /public/css/*.css
 /public/images/*
 /public/hot

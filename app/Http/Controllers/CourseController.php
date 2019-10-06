@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\FakeData\CourseFakeData;
+use App\FakeData\FakeData;
 use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
@@ -16,7 +18,10 @@ class CourseController extends Controller
     {
         $courses = Course::latest()->get();
 
-        return view('courses.index', ['courses' => $courses]);
+        return view('courses.index', [
+            'courses' => $courses,
+            'fake_courses' => app('CourseFakeData')->generate(18 - $courses->count())
+        ]);
     }
 
     /**
