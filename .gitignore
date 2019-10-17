@@ -5,7 +5,7 @@
 /public/images/*
 /public/hot
 /public/storage
-/public/sitemap.xml
+/public/vendor
 /storage/*.key
 /vendor
 /.idea

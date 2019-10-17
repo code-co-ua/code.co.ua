@@ -76,3 +76,7 @@
     </div>
 </div>
 @endsection
+
+@section('scripts')
+    {!! NoCaptcha::renderJs() !!}
+@endsection

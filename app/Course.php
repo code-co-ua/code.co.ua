@@ -76,6 +76,7 @@ class Course extends Model
     {
         $count = DB::table('lesson_user')
                 ->selectRaw('COUNT(lesson_id)')
+                ->whereRaw('`user_id` = `course_user`.`user_id`')
                 ->whereIn('lesson_id', function ($query) {
                     $this->getLessonsId($query);
                 });
@@ -94,7 +95,7 @@ class Course extends Model
         return $query->selectSub($id, 'last_completed_lesson_id');
     }
 
-    public function getLessonsId($query)
+    private function getLessonsId($query)
     {
         return $query->select('id')
             ->from('lessons')

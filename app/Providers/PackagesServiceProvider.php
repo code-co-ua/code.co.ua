@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use App\FakeData\CourseFakeData;
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Blade;
+use Laravel\Telescope\TelescopeServiceProvider;
+use Illuminate\Support\{ServiceProvider, Facades\Blade};
 use joshtronic\LoremIpsum;
 use Parsedown;
 
@@ -38,5 +38,9 @@ class PackagesServiceProvider extends ServiceProvider
         $this->app->singleton('CourseFakeData', function ($app) {
             return new CourseFakeData(new LoremIpsum());
         });
+
+        if ($this->app->isLocal()) {
+            $this->app->register(TelescopeServiceProvider::class);
+        }
     }
 }

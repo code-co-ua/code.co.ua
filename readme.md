@@ -76,7 +76,7 @@ Give an example
 ```
 
 ## ⛏️ Built Using <a name = "built_using"></a>
-- [PostgreSQL](https://www.postgresql.org/) - Database
+- [MySQL](https://www.mysql.com/) - Database
 - [Laravel](https://laravel.com/) - Server Framework
 - [VueJs](https://vuejs.org/) - Web Framework
 - [PHP](https://php.net/) - Server language

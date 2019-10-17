@@ -1,6 +1,53 @@
 @extends('layouts.app')
 
+@section('main-class', 'container')
+
 @section('content')
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Профіль</h3>
+                </div>
+                <div class="card-body">
+                    <form enctype="multipart/form-data" method="post" action="{{ route('profile.update') }}">
+                        <div class="row">
+                            <div class="col-auto">
+                                <span class="avatar avatar-xl" style="background-image: url({{ $user->avatar_url }})"></span>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label class="form-label">Email-Address</label>
+                                    <input class="form-control" placeholder="your-email@domain.com">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Опис</label>
+                            <textarea name="about" class="form-control" rows="5">{{ $user->about }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Ім'я</label>
+                            <input type="text" name="name" class="form-control" value="{{ $user->name }}">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Новий пароль</label>
+                            <input type="password" class="form-control" value="password">
+                        </div>
+                        <div class="form-footer">
+                            <button class="btn btn-primary btn-block">Зберегти</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            hi
+        </div>
+    </div>
+
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">

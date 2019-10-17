@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Lesson;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $courses = auth()->user()->courses()
+        $courses = Auth::user()->courses()
             ->select('*')
             ->withCompletedLessonsCount()
             ->withLessonsCount()

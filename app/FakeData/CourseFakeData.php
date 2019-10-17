@@ -31,7 +31,7 @@ class CourseFakeData extends FakeData
     public function generateItem(): object
     {
         return (object) [
-            'title' => $this->lipsum->words(rand(2, 3)),
+            'title' => ucfirst($this->lipsum->words(rand(2, 3))),
             'image' => collect(self::IMAGES)->random(),
             'description_short' => $this->lipsum->words(rand(5, 8)),
         ];

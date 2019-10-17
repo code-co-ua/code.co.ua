@@ -18,10 +18,9 @@
             </div>
         @endforeach
 
-        {{-- TODO: Because there is no way to say "Google, dont index these test content",
-                    we need to use custom keywords in text generations--}}
+        <!--googleoff: index-->
         @foreach($fake_courses as $course)
-            <div class="col-lg-4">
+            <div class="col-lg-4 select-none">
                 @include('courses._item', [
                     'course' => $course,
                     'route' => '#',
@@ -29,5 +28,6 @@
                 ])
             </div>
         @endforeach
+        <!--googleon: index-->
     </div>
 @endsection

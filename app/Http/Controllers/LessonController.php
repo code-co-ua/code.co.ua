@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Lesson;
@@ -36,7 +38,7 @@ class LessonController extends Controller
      * @param  integer $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(int $id)
     {
         $lesson = Lesson::with('section')
             ->withCount('exercises', 'questions')
@@ -61,7 +63,7 @@ class LessonController extends Controller
 
     /**
      * Display the specified resource with questions relation.
-     *
+     * @todo Refactor
      * @param $lesson_id integer
      * @return \Illuminate\Http\Response
      */

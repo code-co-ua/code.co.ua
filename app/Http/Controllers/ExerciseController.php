@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Exercise;
@@ -36,7 +38,7 @@ class ExerciseController extends Controller
      * @param  integer $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(int $id)
     {
         $exercise = Exercise::with([
             'user:id,name',
