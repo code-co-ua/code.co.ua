@@ -13,8 +13,8 @@
                 @yield('base_content')
             </div>
             <aside class="col-md-3 left-column">
-                @widget('categories')
-                @widget('tags')
+{{--   TODO         @widget('\Domain\Article\Widgets\Categories')--}}
+{{--                @widget('\Domain\Article\Widgets\Tags')--}}
             </aside>
         </div>
     </div>

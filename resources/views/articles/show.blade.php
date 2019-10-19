@@ -58,7 +58,7 @@
             <div class="col-md-10 mx-auto">
                 @parsedown($article->body)
             </div>
-            @include('components.user', ['user' => $article->user])
+            @include('users._item', ['user' => $article->user])
             <div class="col-lg-12">
                 <hr>
                 <h3>Коментарі:</h3>

@@ -20,9 +20,9 @@
     <div class="container">
         <div class="row">
             <article class="col-lg-12 content">
-                @include('components.lessons.breadcrumb')
-                @include('components.lessons.content')
-                @include('components.lessons.controls')
+                @include('lessons._breadcrumb')
+                @include('lessons._content')
+                @include('lessons._controls')
                 @include('components.comments', [
                     'model' => $lesson
                 ])
