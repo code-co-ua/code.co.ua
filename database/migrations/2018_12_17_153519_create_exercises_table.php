@@ -16,13 +16,22 @@ class CreateExercisesTable extends Migration
         Schema::create('exercises', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
+            $table->string('slug');
             $table->longText('body');
-            $table->longText('solution');
-            $table->text('output');
-            $table->string('language');
+            $table->unsignedSmallInteger('language_id');
             $table->unsignedInteger('lesson_id');
             $table->unsignedInteger('user_id');
             $table->timestamps();
+
+            $table->foreign('lesson_id')
+                ->references('id')->on('lessons')
+                ->onDelete('cascade');
+            $table->foreign('language_id')
+                ->references('id')->on('exercise_languages')
+                ->onDelete('cascade');
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onDelete('cascade');
         });
     }
 

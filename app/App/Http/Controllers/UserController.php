@@ -2,33 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Domain\User\Services\UserService;
+use Domain\User\Actions\UpdateAvatar;
 use Domain\User\User;
-use Domain\Article\Category;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+final class UserController extends Controller
 {
-    /**
-     * @var UserService
-     */
-    private $userService;
-
-    /**
-     * UserController constructor.
-     * @param UserService $userService
-     */
-    public function __construct(UserService $userService)
-    {
-        $this->userService = $userService;
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $users = User::latest('balance')->paginate(20);
@@ -36,38 +17,20 @@ class UserController extends Controller
         return view('users.index', ['users' => $users]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  $id integer
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function show(User $user)
     {
-        $user = User::findOrFail($id);
         return view('users.show', ['user' => $user]);
     }
 
-    /**
-     * Show the form for editing the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function edit()
     {
         return view('users.edit', ['user' => Auth::user()]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request)
+    public function update(Request $request, UpdateAvatar $updateAvatar): RedirectResponse
     {
         $request->merge([
-            'avatar' => $this->userService->handleUploadedImage($request)
+            'avatar' => $updateAvatar->execute($request)
         ]);
 
         Auth::user()->update($request->avatar ? $request->all() : $request->except('avatar'));
@@ -78,8 +41,7 @@ class UserController extends Controller
     public function articles()
     {
         $articles = Auth::user()->articles()->latest()->paginate(20);
-        $categories = Category::all();
 
-        return view('users.articles', ['articles' => $articles, 'categories' => $categories]);
+        return view('users.articles', ['articles' => $articles]);
     }
 }

@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
-@section('title', $lesson->name . ' - ' . $lesson->section->course->name)
+@section('title', $lesson->name . ' - ' . $course->name)
+
+@section('main-class', 'container')
 
 @section('head')
-    <meta name="description" content="{{ $lesson->section->course->description }}">
-    <meta property="og:title" content="{{ $lesson->name . ' - ' . $lesson->section->course->name }}">
-    <meta property="og:description" content="{{ $lesson->section->course->description }}">
+    <meta name="description" content="{{ $course->description }}">
+    <meta property="og:title" content="{{ $lesson->name . ' - ' . $course->name }}">
+    <meta property="og:description" content="{{ $course->description }}">
     @if($lesson->video)
         <meta property="og:type" content="video.episode">
         <meta property="og:video" content='https://www.youtube.com/watch?v={{ $lesson->video }}'>
@@ -17,16 +19,12 @@
 @endsection
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <article class="col-lg-12 content">
-                @include('lessons._breadcrumb')
-                @include('lessons._content')
-                @include('lessons._controls')
-                @include('components.comments', [
-                    'model' => $lesson
-                ])
-            </article>
-        </div>
-    </div>
+    <article class="content">
+        @include('lessons._breadcrumb')
+        @include('lessons._content')
+        @include('lessons._controls')
+        @include('components.comments', [
+            'model' => $lesson
+        ])
+    </article>
 @endsection

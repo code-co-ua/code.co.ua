@@ -75,25 +75,29 @@ class Course extends Model
 
     public function scopeWithCompletedLessonsCount($query)
     {
-        $count = DB::table('lesson_user')
+        return $query->selectSub(
+            DB::table('lesson_user')
                 ->selectRaw('COUNT(lesson_id)')
                 ->whereRaw('`user_id` = `course_user`.`user_id`')
                 ->whereIn('lesson_id', function ($query) {
                     $this->getLessonsId($query);
-                });
-        $query->selectSub($count, 'completed_lessons_count');
+                }),
+            'completed_lessons_count'
+        );
     }
 
     public function scopeWithLastCompletedLessonId($query)
     {
-        $id = DB::table('lesson_user')
+        return $query->selectSub(
+            DB::table('lesson_user')
                 ->select('lesson_id')
                 ->whereIn('lesson_id', function ($query) {
                     $this->getLessonsId($query);
                 })
                 ->orderBy('lesson_id', 'desc')
-                ->limit(1);
-        return $query->selectSub($id, 'last_completed_lesson_id');
+                ->limit(1),
+            'last_completed_lesson_id'
+        );
     }
 
     private function getLessonsId($query)

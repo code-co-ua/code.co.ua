@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', $lesson->name . ' - Тести - ' . $lesson->section->course->name)
+@section('title', $lesson->name . ' - Тести - ' . $course->name)
 
 @section('head')
-    <meta name="description" content="{{ $lesson->section->course->description }}">
-    <meta property="og:title" content="{{ $lesson->name . ' - ' . $lesson->section->course->name }}">
-    <meta property="og:description" content="{{ $lesson->section->course->description }}">
+    <meta name="description" content="{{ $course->description }}">
+    <meta property="og:title" content="{{ $lesson->name . ' - ' . $course->name }}">
+    <meta property="og:description" content="{{ $course->description }}">
     @if($lesson->video)
         <meta property="og:type" content="video.episode">
         <meta property="og:video" content='https://www.youtube.com/watch?v={{ $lesson->video }}'>

@@ -3,7 +3,6 @@
 @section('main-class', 'container')
 
 @section('content')
-
     <div class="row">
         <div class="col-lg-4">
             <div class="card">
@@ -18,8 +17,8 @@
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label class="form-label">Email-Address</label>
-                                    <input class="form-control" placeholder="your-email@domain.com">
+                                    <label class="form-label">Ім'я</label>
+                                    <input type="text" name="name" class="form-control" value="{{ $user->name }}">
                                 </div>
                             </div>
                         </div>
@@ -27,18 +26,16 @@
                             <label class="form-label">Опис</label>
                             <textarea name="about" class="form-control" rows="5">{{ $user->about }}</textarea>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Ім'я</label>
-                            <input type="text" name="name" class="form-control" value="{{ $user->name }}">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Новий пароль</label>
-                            <input type="password" class="form-control" value="password">
-                        </div>
                         <div class="form-footer">
                             <button class="btn btn-primary btn-block">Зберегти</button>
                         </div>
                     </form>
+                </div>
+            </div>
+
+            <div class="card mt-2">
+                <div class="card-header">
+                    <h3 class="card-title"></h3>
                 </div>
             </div>
         </div>
@@ -46,7 +43,6 @@
             hi
         </div>
     </div>
-
 
     <div class="container">
         <div class="row">

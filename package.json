@@ -10,33 +10,31 @@
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "devDependencies": {
+    "@voerro/vue-tagsinput": "github:voerro/vue-tagsinput",
     "axios": "^0.18.1",
     "bootstrap": "^4.3.1",
-    "cross-env": "^5.2.1",
-    "jquery": "^3.4.1",
-    "laravel-mix": "^5.0.0",
-    "lodash": "^4.17.15",
-    "popper.js": "^1.15.0",
-    "resolve-url-loader": "^3.1.0",
-    "sass": "^1.23.0",
-    "sass-loader": "^8.0.0",
-    "vue": "^2.6.10",
-    "vue-template-compiler": "^2.6.10",
-    "webpack-cli": "^3.1.2"
-  },
-  "dependencies": {
-    "@voerro/vue-tagsinput": "github:voerro/vue-tagsinput",
     "bootstrap.native": "git+https://github.com/thednp/bootstrap.native.git",
+    "cross-env": "^5.2.1",
     "diff": "^3.5.0",
     "laravel-echo": "^1.4.0",
+    "laravel-mix": "^5.0.0",
     "laravel-mix-purgecss": "^3.0.0",
+    "lodash": "^4.17.15",
     "marked": "^0.7.0",
     "nprogress": "^0.2.0",
     "prismjs": "^1.15.0",
+    "resolve-url-loader": "^3.1.0",
+    "sass": "^1.23.0",
+    "sass-loader": "^8.0.0",
     "simplemde": "^1.11.2",
-    "tabler-ui": "0.0.34",
+    "vue": "^2.6.10",
     "vue-monaco-cdn": "^1.0.1",
     "vue-sweetalert2": "^1.6.4",
-    "vue-toasted": "^1.1.25"
+    "vue-template-compiler": "^2.6.10",
+    "vue-toasted": "^1.1.25",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "tabler-ui": "git+https://github.com/tabler/tabler.git"
   }
 }

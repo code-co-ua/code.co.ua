@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Domain\User;
 
 use Domain\Article\Article;
@@ -10,15 +12,10 @@ use Illuminate\Notifications\Notifiable;
 use JD\Cloudder\Facades\Cloudder;
 use Laravelista\Comments\Commenter;
 
-class User extends Authenticatable
+final class User extends Authenticatable
 {
     use Notifiable, Commenter;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'name',
         'email',
@@ -30,11 +27,6 @@ class User extends Authenticatable
         'password',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
@@ -46,7 +38,7 @@ class User extends Authenticatable
 
     public function medias()
     {
-        return $this->hasMany('App\Media');
+        return $this->hasMany(Media::class);
     }
 
     public function courses()
@@ -62,6 +54,7 @@ class User extends Authenticatable
     public function attachCourse(int $id)
     {
         auth()->user()->courses()->syncWithoutDetaching($id);
+        return $this;
     }
 
     public function attachLesson(int $id)
@@ -70,6 +63,7 @@ class User extends Authenticatable
             auth()->user()->lessons()->attach($id);
             auth()->user()->increment('balance');
         }
+        return $this;
     }
 
     public function getAvatarUrlAttribute(){

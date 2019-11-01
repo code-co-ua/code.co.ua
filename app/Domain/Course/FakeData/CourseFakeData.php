@@ -8,15 +8,16 @@ use joshtronic\LoremIpsum;
 class CourseFakeData extends FakeData
 {
     const IMAGES = [
-        'https://img.icons8.com/?id=55167&size=64&format=svg&token=&color=000000',
-        'https://img.icons8.com/?id=46430&size=64&format=svg&token=&color=000000',
-        'https://img.icons8.com/?id=55113&size=64&format=svg&token=&color=000000',
-        'https://img.icons8.com/?id=46718&size=64&format=svg&token=&color=000000',
-        'https://img.icons8.com/?id=107497&size=64&format=svg&token=&color=000000',
-        'https://img.icons8.com/?id=54949&size=64&format=svg&token=&color=000000',
-        'https://img.icons8.com/?id=55503&size=64&format=svg&token=&color=000000',
-        'https://img.icons8.com/?id=121111&size=64&format=svg&token=&color=000000',
-        'https://img.icons8.com/?id=121464&size=64&format=svg&token=&color=000000',
+        'https://code-co-ua.github.io/svg/55167.svg',
+        'https://code-co-ua.github.io/svg/46430.svg',
+        'https://code-co-ua.github.io/svg/55095.svg',
+        'https://code-co-ua.github.io/svg/55113.svg',
+        'https://code-co-ua.github.io/svg/46718.svg',
+        'https://code-co-ua.github.io/svg/107497.svg',
+        'https://code-co-ua.github.io/svg/54949.svg',
+        'https://code-co-ua.github.io/svg/55503.svg',
+        'https://code-co-ua.github.io/svg/121111.svg',
+        'https://code-co-ua.github.io/svg/121464.svg',
     ];
 
     /**

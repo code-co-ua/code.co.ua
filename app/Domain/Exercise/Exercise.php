@@ -3,16 +3,16 @@
 namespace Domain\Exercise;
 
 use Domain\Lesson\Lesson;
+use Domain\User\User;
 use Illuminate\Database\Eloquent\Model;
 
-class Exercise extends Model
+final class Exercise extends Model
 {
     protected $fillable = [
         'title',
+        'slug',
         'body',
-        'solution',
-        'output',
-        'language',
+        'language_id',
         'lesson_id',
         'user_id',
     ];
@@ -24,16 +24,6 @@ class Exercise extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
-    }
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::creating(function($table)
-        {
-            $table->user_id = auth()->id();
-        });
+        return $this->belongsTo(User::class);
     }
 }

@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Providers;
 
+use Domain\Lesson\Lesson;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -24,6 +27,13 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         Route::patterns(['course' => '[0-9]+', 'id' => '[0-9]+']);
+
+        Route::bind('lesson', function (string $value, $route) {
+            return Lesson::whereCourse($route->parameter('course'))
+                ->with('section')
+                ->withCount('exercise', 'questions')
+                ->findOrFail($value);
+        });
 
         parent::boot();
     }
