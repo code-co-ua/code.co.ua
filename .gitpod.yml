@@ -1,0 +1,5 @@
+tasks:
+  - init: composer install
+    command: php artisan serve --port=3000
+image:
+  file: .gitpod.Dockerfile

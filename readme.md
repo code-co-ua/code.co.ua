@@ -7,6 +7,7 @@
 
 <div align="center">
 
+  [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/code-co-ua/code.co.ua)
   [![Status](https://img.shields.io/badge/status-active-success.svg)]() 
   [![GitHub Issues](https://img.shields.io/github/issues/code-co-ua/code.co.ua.svg)](https://github.com/codecoua/code.co.ua/issues)
   [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/code-co-ua/code.co.ua.svg)](https://github.com/code-co-ua/code.co.ua/pulls)
