@@ -11,8 +11,8 @@ final class LaunchInstance
 {
     use QueueableAction;
 
-    public function handle(Exercise $exercise)
+    public function execute(Exercise $exercise)
     {
-        dd("Launch instance for ", $exercise);
+        dump("Launch instance for ", $exercise);
     }
 }

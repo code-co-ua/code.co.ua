@@ -5,25 +5,17 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use Domain\Course\Course;
+use Domain\Exercise\Actions\LaunchInstance;
 use Domain\Lesson\Lesson;
 
 final class ExerciseController extends Controller
 {
-    public function show(Course $course, Lesson $lesson)
+    public function show(Course $course, Lesson $lesson, LaunchInstance $launchInstance)
     {
-        $lesson->load('exercise.user');
+        $launchInstance->onQueue('default')->execute($lesson->exercise);
 
-        //TODO - https://github.com/spatie/laravel-view-models
         return view('lessons.exercise', [
-            'exercise' => $lesson->exercise,
-            'next_url' => route('lessons.show', [
-                'course' => $course->id,
-                'lesson' => $lesson->next()->id ?? ''
-            ]),
-            'prev_url' => route('lessons.show', [
-                'course' => $course->id,
-                'lesson' => $lesson->previous()->id ?? ''
-            ]),
+            'exercise' => $lesson->exercise
         ]);
     }
 }

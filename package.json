@@ -27,6 +27,7 @@
     "sass": "^1.23.0",
     "sass-loader": "^8.0.0",
     "simplemde": "^1.11.2",
+    "spatie-dom": "^1.4.0",
     "vue": "^2.6.10",
     "vue-monaco-cdn": "^1.0.1",
     "vue-sweetalert2": "^1.6.4",

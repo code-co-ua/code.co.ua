@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'php',
             'title' => 'PHP',
         ]);
-        $exercise = $lesson->exercises()->create([
+        $exercise = $lesson->exercise()->create([
             'title' => 'H W task',
             'slug' => 'hello',
             'body' => 'Some long text, ## Markdown too',

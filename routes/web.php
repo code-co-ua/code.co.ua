@@ -26,7 +26,7 @@ Route::resource('courses', 'CourseController')->only(['index', 'show']);
 Route::prefix('courses/{course}/')->group(function () {
     Route::get('{lesson}', 'LessonController@show')->name('lessons.show');
     Route::get('{lesson}/questions', 'LessonController@questions')->name('lessons.questions');
-    Route::get('{lesson}/exercise', 'ExerciseController@show')->name('lessons.exercise');
+    Route::get('{lesson}/exercise', 'ExerciseController@show')->name('lessons.exercise')->middleware('auth');
     Route::get('complete', 'CourseController@complete')->middleware('auth')->name('courses.complete');
 });
 

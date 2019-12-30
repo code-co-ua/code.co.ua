@@ -2,11 +2,8 @@ FROM gitpod/workspace-postgres
                     
 USER gitpod
 
-# Install custom tools, runtime, etc. using apt-get
-# For example, the command below would install "bastet" - a command line tetris clone:
-#
-# RUN sudo apt-get -q update && #     sudo apt-get install -yq bastet && #     sudo rm -rf /var/lib/apt/lists/*
-#
-# More information: https://www.gitpod.io/docs/42_config_docker/
+RUN sudo add-apt-repository ppa:ondrej/php
 
-RUN sudo apt-get install php-bcmath
+RUN sudo apt-get install php-bcmath -y
+
+RUN composer global require hirak/prestissimo
