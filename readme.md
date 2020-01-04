@@ -77,9 +77,9 @@ Give an example
 ```
 
 ## ⛏️ Built Using <a name = "built_using"></a>
-- [MySQL](https://www.mysql.com/) - Database
+- [PostgreSQL](https://www.postgresql.org/) - Database
 - [Laravel](https://laravel.com/) - Server Framework
-- [VueJs](https://vuejs.org/) - Web Framework
+- [Vue.js](https://vuejs.org/) - Web Framework
 - [PHP](https://php.net/) - Server language
 
 ## ✍️ Authors <a name = "authors"></a>
