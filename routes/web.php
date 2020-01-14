@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\{Route, Auth};
 
 Route::view('/', 'welcome');
 
-Auth::routes();
+Route::group(['throttle' => '20,1'], function () {
+    Auth::routes();
+});
 
 //User
 Route::get('/home', 'HomeController@index')->name('home');
@@ -36,3 +38,5 @@ Route::resource('media', 'MediaController')->except([
 ]);
 
 Route::get('changes/{id}', 'ChangesController@show')->name('changes');
+
+Route::get('api/session', 'Api\\CheckSession');

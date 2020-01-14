@@ -66,7 +66,12 @@ final class User extends Authenticatable
         return $this;
     }
 
-    public function getAvatarUrlAttribute(){
-        return Cloudder::show($this->avatar, ['width' => 150, 'height' => 150]);
+    /**
+     * TODO - fix package compatibility with PHP 7.4
+     */
+    public function getAvatarUrlAttribute(): string
+    {
+        return '';
+//        return Cloudder::show($this->avatar, ['width' => 150, 'height' => 150]);
     }
 }

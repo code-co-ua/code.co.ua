@@ -60,8 +60,6 @@
                             </label>
                         </div>
 
-                        {!! NoCaptcha::display() !!}
-
                         <div class="form-footer">
                             <button type="submit" class="btn btn-primary btn-block">@lang('Login')</button>
                         </div>
@@ -75,8 +73,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-@section('scripts')
-    {!! NoCaptcha::renderJs() !!}
 @endsection
