@@ -3,7 +3,9 @@
 
 // Bootstrap & Tabler UI
 @import 'variables';
-@import 'tabler';
+//@import 'tabler';
+@import "~tabler-ui/scss/variables";
+@import "~tabler-ui/scss/tabler";
 
 // Libraries
 @import '~prismjs/themes/prism-okaidia.css';

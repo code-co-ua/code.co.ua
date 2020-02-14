@@ -48,11 +48,12 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $captcha = app()->environment('local') ? '' : 'required|captcha';
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'g-recaptcha-response' => 'required|captcha',
+            'g-recaptcha-response' => $captcha,
         ]);
     }
 
@@ -62,7 +63,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
+    protected function create(array $data): User
     {
         return User::create([
             'name' => $data['name'],

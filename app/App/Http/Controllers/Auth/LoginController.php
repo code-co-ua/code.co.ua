@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -41,13 +42,14 @@ class LoginController extends Controller
     /**
      * Validate the user login request.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  Request  $request
      * @return void
+     * @throws ValidationException
      */
-    protected function validateLogin(Request $request)
+    protected function validateLogin(Request $request): void
     {
         $this->validate($request, [
-            $this->username() => 'required|string',
+            'email' => 'required|string|email',
             'password' => 'required|string',
         ]);
     }
