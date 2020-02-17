@@ -2,6 +2,7 @@
     <div class="col-sm-offset-2">
         <a href="{{ route('users.show', ['id' => $user->id]) }}">
             <img src="{{ $user->avatar_url }}"
+                 class="avatar avatar-xxl"
                  alt="{{ $user->name }}">
         </a>
     </div>

@@ -5,9 +5,9 @@
 @endif
 
     {{-- Remove duplicated query to db - check if it auth user --}}
-    @php($commenter = $comment->commenter_id == auth::id() ? auth()->user() : $comment->commenter)
+    @php($commenter = $comment->commenter_id == Auth::id() ? Auth::user() : $comment->commenter)
 
-    <img class="mr-3" src="{{ Cloudder::show($commenter->avatar, ['width' => 150, 'height' => 150]) }}" alt="{{ $commenter->name }} Avatar" width="64px">
+    <img class="mr-3" src="{{ $commenter->avatar_url }}" alt="{{ $commenter->name }} Avatar" width="64px">
     <div class="media-body">
         <h5 class="mt-0 mb-1">{{ $commenter->name }} <small class="text-muted">- {{ $comment->created_at->diffForHumans() }}</small></h5>
         <div style="white-space: pre-wrap;">@parsedown($comment->comment)</div>
