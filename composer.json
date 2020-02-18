@@ -5,7 +5,7 @@
     "license": "",
     "type": "project",
     "require": {
-        "php": "^7.2",
+        "php": "^7.4",
         "ext-json": "*",
         "anhskohbo/no-captcha": "^3.1",
         "arrilot/laravel-widgets": "^3.13",
@@ -22,6 +22,7 @@
         "mad-web/laravel-enum": "^1.6",
         "owen-it/laravel-auditing": "^9.3",
         "rtconner/laravel-tagging": "^3.2",
+        "spatie/data-transfer-object": "^1.13",
         "spatie/laravel-model-status": "^1.9",
         "spatie/laravel-queueable-action": "^2.3",
         "symfony/process": "^4.3",

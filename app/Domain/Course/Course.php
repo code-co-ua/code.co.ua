@@ -8,6 +8,24 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\DB;
 use Laravelista\Comments\Commentable;
 
+/**
+ * @property string $title
+ * @property string $name
+ * @property string $description
+ * @property string $description_short
+ * @property string $description_after
+ * @property string $image
+ * @property integer $user_id
+ * Custom attributes
+ * @property integer $progress
+ * @property integer $first_lesson_id
+ * Scopes
+ * @method withQuestionsCount()
+ * @method withExercisesCount()
+ * @method withLessonsCount()
+ * @method withCompletedLessons()
+ * @method withLastCompletedLessonId()
+ */
 class Course extends Model
 {
     use Commentable;

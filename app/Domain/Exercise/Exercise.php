@@ -6,6 +6,10 @@ use Domain\Lesson\Lesson;
 use Domain\User\User;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property Lesson $lesson
+ * @property User $user
+ */
 final class Exercise extends Model
 {
     protected $fillable = [

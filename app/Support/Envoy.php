@@ -7,21 +7,19 @@ use Symfony\Component\Process\Process;
 
 final class Envoy
 {
-    /** @var string */
-    private $task;
+    private string $task;
 
-    /** @var string */
-    private $arguments;
+    private string $arguments;
 
-    public function task(string $task)
+    public function task(string $task): self
     {
         $this->task = $task;
         return $this;
     }
 
-    public function arguments(array $arguments)
+    public function arguments(array $arguments): self
     {
-        $this->arguments = collect($arguments)->map(function ($value, $key){
+        $this->arguments = collect($arguments)->map(function ($value, $key) {
             return "--$key=$value";
         })->values()->implode(' ');
 
@@ -31,12 +29,13 @@ final class Envoy
     public function run(): string
     {
         $process = new Process([
-            base_path('vendor/laravel/envoy/bin/envoy'), 'run', $this->task, $this->arguments
+            base_path('vendor/bin/envoy'), 'run', $this->task, $this->arguments
         ]);
 
         $process->setWorkingDirectory(base_path())->run();
 
         if (!$process->isSuccessful()) {
+            dd($process->getCommandLine());
             throw new ProcessFailedException($process);
         }
 

@@ -34,7 +34,7 @@
 				</span>
                 </label>
                 <div class="input-group input-group-flat">
-                    <input type="password" class="form-control" placeholder="@lang('Password')">
+                    <input name="password" type="password" class="form-control" placeholder="@lang('Password')">
                     {{--<div class="input-group-append">
                         <span class="input-group-text">
                             <a href="#"

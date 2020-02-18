@@ -5,6 +5,12 @@ namespace Domain\Course;
 use Domain\Lesson\Lesson;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property Course $course
+ * @property string $title
+ * @property int $course_id
+ * @property int $user_id
+ */
 class Section extends Model
 {
     protected $fillable = [

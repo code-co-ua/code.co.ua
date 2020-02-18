@@ -9,6 +9,10 @@ use Laravelista\Comments\Commentable;
 use OwenIt\Auditing\{Auditable, Contracts\Auditable as AuditableContract};
 use Illuminate\Database\Eloquent\{Builder, Model, Relations\BelongsTo, Relations\HasMany, Relations\HasOne};
 
+/**
+ * @property Section $section
+ * @property Exercise $exercise
+ */
 class Lesson extends Model implements AuditableContract
 {
     use Commentable, Auditable;
