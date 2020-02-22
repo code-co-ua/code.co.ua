@@ -1,18 +1,24 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
 use Domain\Course\Course;
-use Domain\Exercise\Actions\LaunchInstance;
+use Domain\Exercise\ExerciseService;
 use Domain\Lesson\Lesson;
+use Illuminate\Http\Request;
 
 final class ExerciseController extends Controller
 {
-    public function show(Course $course, Lesson $lesson, LaunchInstance $launchInstance)
+    private ExerciseService $service;
+
+    public function __construct(ExerciseService $exerciseService)
     {
-        $launchInstance->onQueue('default')->execute($lesson->exercise);
+        $this->service = $exerciseService;
+    }
+
+    public function show(Course $course, Lesson $lesson, Request $request)
+    {
+        $this->service->launchInstance($lesson->exercise, $request->session()->getId());
 
         return view('lessons.exercise', [
             'exercise' => $lesson->exercise

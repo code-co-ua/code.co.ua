@@ -2,6 +2,7 @@
 
 namespace Support;
 
+use Closure;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
@@ -26,16 +27,20 @@ final class Envoy
         return $this;
     }
 
-    public function run(): string
+    public function run(Closure $reader): string
     {
-        $process = new Process([
-            base_path('vendor/bin/envoy'), 'run', $this->task, $this->arguments
-        ]);
+        $this->arguments = " {$this->arguments}";
 
-        $process->setWorkingDirectory(base_path())->run();
+        $process = new Process(
+            base_path('vendor/bin/envoy')." run {$this->task} {$this->arguments}"
+        );
+
+        $process->setWorkingDirectory(base_path())
+            ->run(static function ($type, $buffer) use ($reader){
+                $reader($type, $buffer);
+            });
 
         if (!$process->isSuccessful()) {
-            dd($process->getCommandLine());
             throw new ProcessFailedException($process);
         }
 

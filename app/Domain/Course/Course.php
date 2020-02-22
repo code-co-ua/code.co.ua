@@ -11,6 +11,7 @@ use Laravelista\Comments\Commentable;
 /**
  * @property string $title
  * @property string $name
+ * @property string $slug
  * @property string $description
  * @property string $description_short
  * @property string $description_after
@@ -33,6 +34,7 @@ class Course extends Model
     protected $fillable = [
         'title',
         'name',
+        'slug',
         'description',
         'description_short',
         'description_after',

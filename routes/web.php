@@ -38,5 +38,3 @@ Route::resource('media', 'MediaController')->except([
 ]);
 
 Route::get('changes/{id}', 'ChangesController@show')->name('changes');
-
-Route::get('api/session', 'Api\\CheckSession');

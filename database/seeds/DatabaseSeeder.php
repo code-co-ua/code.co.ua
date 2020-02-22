@@ -9,21 +9,19 @@ class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
-        // $this->call(UsersTableSeeder::class);
-        factory(User::class)->create();
+        factory(User::class)->create(['email' => 'user@test.com']);
 
         $course = Course::create([
             'title' => 'PHP Basics',
             'name' => 'PHP Basics',
+            'slug' => 'php-basics',
             'description' => 'Lorem ipsum',
             'description_short' => 'Lorem ipsum',
             'image' => 'https://some image',
-            'user_id' => 1,
+            'user_id' => User::first()->id,
         ]);
         $section = $course->sections()->create([
             'title' => 'H W',

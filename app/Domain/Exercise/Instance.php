@@ -4,12 +4,23 @@ namespace Domain\Exercise;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property int $id
+ * @property int $exercise_id
+ * @property int $server_id
+ * @property int $user_id
+ * @property int $container_id
+ * @property string $url
+ * @property boolean $is_completed
+ */
 final class Instance extends Model
 {
     protected $fillable = [
         'exercise_id',
         'server_id',
         'user_id',
+        'container_id',
+        'url',
         'is_completed',
     ];
 }

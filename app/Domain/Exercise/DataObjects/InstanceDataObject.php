@@ -3,6 +3,7 @@
 namespace Domain\Exercise\DataObjects;
 
 use Domain\Exercise\Exercise;
+use Domain\User\User;
 use Spatie\DataTransferObject\DataTransferObject;
 
 class InstanceDataObject extends DataTransferObject
@@ -13,6 +14,8 @@ class InstanceDataObject extends DataTransferObject
 
     public Exercise $exercise;
 
+    public User $user;
+
     public string $courseDirectory;
 
     public string $exerciseDirectory;
@@ -20,4 +23,5 @@ class InstanceDataObject extends DataTransferObject
     public string $exerciseGitPath;
 
     public string $sessionId;
+
 }

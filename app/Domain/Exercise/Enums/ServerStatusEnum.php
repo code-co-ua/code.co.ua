@@ -11,11 +11,11 @@ use MadWeb\Enum\Enum;
  */
 final class ServerStatusEnum extends Enum
 {
-    const __default = self::PREPARING;
+    public const __default = self::PREPARING;
 
-    const PREPARING = 'preparing';
+    public const PREPARING = 'preparing';
 
-    const AVAILABLE = 'available';
+    public const AVAILABLE = 'available';
 
-    const UNAVAILABLE = 'unavailable';
+    public const UNAVAILABLE = 'unavailable';
 }

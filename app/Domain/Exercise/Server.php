@@ -2,7 +2,7 @@
 
 namespace Domain\Exercise;
 
-use Domain\Exercise\Enums\ServerStatusEnum;
+//use Domain\Exercise\Enums\ServerStatusEnum;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\ModelStatus\HasStatuses;
 
@@ -15,7 +15,7 @@ final class Server extends Model
         'user',
     ];
 
-    protected $casts = [
-        'status' => ServerStatusEnum::class,
-    ];
+//    protected $casts = [
+//        'status' => ServerStatusEnum::class,
+//    ];
 }

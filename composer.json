@@ -24,7 +24,6 @@
         "rtconner/laravel-tagging": "^3.2",
         "spatie/data-transfer-object": "^1.13",
         "spatie/laravel-model-status": "^1.9",
-        "spatie/laravel-queueable-action": "^2.3",
         "symfony/process": "^4.3",
         "watson/active": "^4.0"
     },
