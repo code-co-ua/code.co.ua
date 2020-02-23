@@ -12,6 +12,8 @@
 /.idea
 /.vscode
 /.vagrant
+Envoy*
+!Envoy.blade.php
 Homestead.json
 Homestead.yaml
 npm-debug.log

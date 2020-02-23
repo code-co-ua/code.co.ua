@@ -1,40 +1,32 @@
 <?php
 
-use Illuminate\Support\Facades\{Route, Auth};
+/** @var $router Illuminate\Routing\Router */
 
-/**
- * Before start, see all model bindings - visit provider:
- * @see \App\Providers\RouteServiceProvider::boot()
- * @link https://laravel.com/docs/master/routing#route-model-binding
- */
+$router->view('/', 'welcome');
 
-Route::view('/', 'welcome');
+// Auth
+$router->middleware('throttle:15,1')->group(fn() => $router->auth());
 
-Route::group(['throttle' => '20,1'], function () {
-    Auth::routes();
+$router->get('/home', 'HomeController@index')->name('home');
+$router->resource('users', 'UserController')->only('index', 'show');
+
+$router->group(['prefix' => 'profile', 'middleware' => 'auth'], function () use ($router) {
+    $router->get('/', 'UserController@edit')->name('profile.edit');
+    $router->post('/', 'UserController@update')->name('profile.update');
+    $router->get('articles', 'UserController@articles')->name('profile.articles');
 });
 
-//User
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('users', 'UserController')->only('index', 'show');
-
-Route::group(['prefix' => 'profile', 'middleware' => 'auth'], function () {
-    Route::get('/', 'UserController@edit')->name('profile.edit');
-    Route::post('/', 'UserController@update')->name('profile.update');
-    Route::get('articles', 'UserController@articles')->name('profile.articles');
+$router->resource('courses', 'CourseController')->only(['index', 'show']);
+$router->prefix('courses/{course}/')->group(function () use ($router) {
+    $router->get('{lesson}', 'LessonController@show')->name('lessons.show');
+    $router->get('{lesson}/questions', 'LessonController@questions')->name('lessons.questions');
+    $router->get('{lesson}/exercise', 'ExerciseController@show')->name('lessons.exercise')->middleware('auth');
+    $router->get('complete', 'CourseController@complete')->middleware('auth')->name('courses.complete');
 });
 
-Route::resource('courses', 'CourseController')->only(['index', 'show']);
-Route::prefix('courses/{course}/')->group(function () {
-    Route::get('{lesson}', 'LessonController@show')->name('lessons.show');
-    Route::get('{lesson}/questions', 'LessonController@questions')->name('lessons.questions');
-    Route::get('{lesson}/exercise', 'ExerciseController@show')->name('lessons.exercise')->middleware('auth');
-    Route::get('complete', 'CourseController@complete')->middleware('auth')->name('courses.complete');
-});
-
-Route::resource('articles', 'ArticleController')->except(['destroy']);
-Route::resource('media', 'MediaController')->except([
+$router->resource('articles', 'ArticleController')->except(['destroy']);
+$router->resource('media', 'MediaController')->except([
     'show', 'edit', 'update',
 ]);
 
-Route::get('changes/{id}', 'ChangesController@show')->name('changes');
+$router->get('changes/{id}', 'ChangesController@show')->name('changes');
