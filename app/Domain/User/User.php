@@ -1,15 +1,14 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Domain\User;
 
 use Domain\Article\Article;
 use Domain\Course\Course;
+use Domain\Exercise\Instance;
 use Domain\Lesson\Lesson;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use JD\Cloudder\Facades\Cloudder;
 use Laravelista\Comments\Commenter;
 
 final class User extends Authenticatable
@@ -49,6 +48,11 @@ final class User extends Authenticatable
     public function lessons()
     {
         return $this->belongsToMany(Lesson::class, 'lesson_user');
+    }
+
+    public function instances(): HasMany
+    {
+        return $this->hasMany(Instance::class);
     }
 
     public function attachCourse(int $id)

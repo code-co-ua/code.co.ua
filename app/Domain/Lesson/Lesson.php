@@ -57,11 +57,11 @@ class Lesson extends Model implements AuditableContract
 
     public function next(): ?Lesson
     {
-        return Lesson::whereId('>', $this->id)->whereCourse($this->section->course_id)->orderBy('id', 'asc')->first();
+        return self::whereId('>', $this->id)->whereCourse($this->section->course_id)->orderBy('id', 'asc')->first();
     }
 
     public function previous(): ?Lesson
     {
-        return Lesson::whereId('<', $this->id)->whereCourse($this->section->course_id)->orderBy('id', 'desc')->first();
+        return self::whereId('<', $this->id)->whereCourse($this->section->course_id)->orderBy('id', 'desc')->first();
     }
 }

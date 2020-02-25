@@ -3,14 +3,17 @@
 namespace Domain\Exercise\DataObjects;
 
 use Domain\Exercise\Exercise;
+use Domain\Exercise\Instance;
 use Domain\User\User;
 use Spatie\DataTransferObject\DataTransferObject;
 
-class InstanceDataObject extends DataTransferObject
+class LaunchInstanceDataObject extends DataTransferObject
 {
     public string $server;
 
     public string $domain;
+
+    public ?Instance $instance = null;
 
     public Exercise $exercise;
 

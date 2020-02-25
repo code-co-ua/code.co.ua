@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $container_id
  * @property string $url
  * @property boolean $is_completed
+ * Custom attributes
+ * @property string $status_key
  */
 final class Instance extends Model
 {
@@ -23,4 +25,9 @@ final class Instance extends Model
         'url',
         'is_completed',
     ];
+
+    public function getStatusKeyAttribute(): string
+    {
+        return "instance:{$this->id}";
+    }
 }

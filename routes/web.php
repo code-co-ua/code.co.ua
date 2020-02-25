@@ -30,3 +30,5 @@ $router->resource('media', 'MediaController')->except([
 ]);
 
 $router->get('changes/{id}', 'ChangesController@show')->name('changes');
+
+$router->get('api/instances/{instance}/status', 'API\StreamInstanceStatus')->name('api.instance.status');

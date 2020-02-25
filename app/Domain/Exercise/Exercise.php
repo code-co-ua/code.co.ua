@@ -5,6 +5,7 @@ namespace Domain\Exercise;
 use Domain\Lesson\Lesson;
 use Domain\User\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Relations
@@ -37,5 +38,10 @@ final class Exercise extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function instances(): HasMany
+    {
+        return $this->hasMany(Instance::class);
     }
 }

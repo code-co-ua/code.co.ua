@@ -18,10 +18,11 @@ final class ExerciseController extends Controller
 
     public function show(Course $course, Lesson $lesson, Request $request)
     {
-        $this->service->launchInstance($lesson->exercise, $request->session()->getId());
+        $instance = $this->service->launchInstance($lesson->exercise, $request->session()->getId());
 
         return view('lessons.exercise', [
-            'exercise' => $lesson->exercise
+            'instance'=> $instance,
+            'exercise' => $lesson->exercise,
         ]);
     }
 }
