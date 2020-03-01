@@ -4,11 +4,11 @@
     <input type="hidden" name="commentable_id" value="{{ $model->id }}"/>
     <div class="form-group">
         <label for="message">Ваш коментар:</label>
-        <text-editor name="message"></text-editor>
+        <textarea rows="10" class="form-control" name="message"></textarea>
         <div class="invalid-feedback">
             Текст повідомлення обов'язковий.
         </div>
     </div>
-    <button type="submit" class="btn btn-lg btn-outline-success text-uppercase btn-block">Додати</button>
+    <button type="submit" class="btn btn-success btn-block">Додати</button>
 </form>
 <br>

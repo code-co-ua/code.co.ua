@@ -5,16 +5,19 @@
 @section('main-class', 'container')
 
 @section('content')
-    <h1 class="page-title">Ваші курси</h1>
+    <div class="page-header">
+        <h1 class="page-title">Ваші курси</h1>
+    </div>
     @if($courses)
     <div class="table-responsive">
         <table class="table table-hover table-outline table-vcenter text-nowrap card-table">
             <thead>
             <tr>
-                <th class="text-center w-1"><i class="icon-people"></i></th>
+                <th class="text-center w-1">
+                    <i class="icon-people"></i>
+                </th>
                 <th>Назва</th>
                 <th>Прогрес</th>
-{{--                <th>Активність</th>--}}
                 <th>Дії</th>
             </tr>
             </thead>
@@ -22,23 +25,25 @@
 
             @foreach($courses as $course)
                 <tr>
-                    <td class="bg-contain bg-center bg-no-repeat td-image" style="background: url({{ $course->image }});"></td>
+                    <td class="bg-contain bg-center bg-no-repeat td-image"
+                        style="background: url({{ $course->image }});">
+                    </td>
                     <td>
                         <a href="{{ route('courses.show', ['course' => $course->id]) }}">
                             {{ $course->title }}
                         </a>
                     </td>
-                    <td>
+                    <td style="width: 500px">
                         <div class="clearfix">
                             <div class="float-left">
                                 <strong>{{ $course->progress }}%</strong>
                             </div>
-                            <div class="float-right">
+                            {{--<div class="float-right">
                                 <small class="text-muted">Jun 11, 2015 - Jul 10, 2015</small>
-                            </div>
+                            </div>--}}
                         </div>
                         <div class="progress progress-xs">
-                            <div class="progress-bar {{ $course->progress == 100 ? 'bg-success' : 'bg-azure' }}"
+                            <div class="progress-bar {{ $course->progress === 100 ? 'bg-success' : 'bg-azure' }}"
                                  role="progressbar"
                                  style="width: {{ $course->progress }}%"
                                  aria-valuenow="{{ $course->progress }}"
@@ -51,8 +56,10 @@
                         <div>8 minutes ago</div>
                     </td>--}}
                     <td>
-                        <a href="{{ route('lessons.show', ['id' => $course->last_completed_lesson_id
-                                                                    ?? $course->first_lesson_id]) }}"
+                        <a href="{{ route('lessons.show', [
+                                'lesson' => $course->last_completed_lesson_id ?? $course->first_lesson_id,
+                                'course' => $course
+                            ]) }}"
                            class="btn btn-success">
                             Продовжити
                         </a>

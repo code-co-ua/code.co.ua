@@ -1,34 +1,34 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
+/** @var $router Illuminate\Routing\Router */
 
-Route::view('/', 'welcome');
+$router->view('/', 'welcome');
 
-Auth::routes();
+// Auth
+$router->middleware('throttle:15,1')->group(fn() => $router->auth());
 
-//User
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('users', 'UserController')->only('index', 'show');
-Route::middleware(['auth'])->group(function () {
-    Route::get('profile', 'UserController@edit')->name('profile.edit');
-    Route::post('profile', 'UserController@update')->name('profile.update');
-    Route::get('profile/articles', 'UserController@articles')->name('profile.articles');
+$router->get('/home', 'HomeController@index')->name('home');
+$router->resource('users', 'UserController')->only('index', 'show');
+
+$router->group(['prefix' => 'profile', 'middleware' => 'auth'], function () use ($router) {
+    $router->get('/', 'UserController@edit')->name('profile.edit');
+    $router->post('/', 'UserController@update')->name('profile.update');
+    $router->get('articles', 'UserController@articles')->name('profile.articles');
 });
 
-//Course
-Route::resource('courses', 'CourseController')->only(['index', 'show']);
-Route::get('courses/{id}/complete', 'CourseController@complete')->middleware('auth')->name('courses.complete');
+$router->resource('courses', 'CourseController')->only(['index', 'show']);
+$router->prefix('courses/{course}/')->group(function () use ($router) {
+    $router->get('{lesson}', 'LessonController@show')->name('lessons.show');
+    $router->get('{lesson}/questions', 'LessonController@questions')->name('lessons.questions');
+    $router->get('{lesson}/exercise', 'ExerciseController@show')->name('lessons.exercise')->middleware('auth');
+    $router->get('complete', 'CourseController@complete')->middleware('auth')->name('courses.complete');
+});
 
-//Lessons
-Route::get('lessons/{id}', 'LessonController@show')->name('lessons.show');
-Route::get('lessons/{id}/questions', 'LessonController@questions')->name('lessons.questions');
-Route::get('lessons/{id}/exercise', 'ExerciseController@show')->name('lessons.exercise');
-
-//Articles
-Route::resource('articles', 'ArticleController')->except(['destroy']);
-Route::resource('media', 'MediaController')->except([
+$router->resource('articles', 'ArticleController')->except(['destroy']);
+$router->resource('media', 'MediaController')->except([
     'show', 'edit', 'update',
 ]);
 
-Route::get('changes/{id}', 'ChangesController@show')->name('changes');
+$router->get('changes/{id}', 'ChangesController@show')->name('changes');
+
+$router->get('api/instances/{instance}/status', 'API\StreamInstanceStatus')->name('api.instance.status');

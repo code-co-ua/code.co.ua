@@ -39,7 +39,7 @@
                                 <div itemscope itemtype="http://schema.org/Person" class="user col-lg-12 p-lg-3">
                                     <span class="badge badge-success float-right"
                                           style="font-size: 15px;">{{ $user->balance }}</span>
-                                    <a href="{{ route('users.show', ['id' => $user->id]) }}" itemprop="url" class="text-info">
+                                    <a href="{{ route('users.show', ['user' => $user->id]) }}" itemprop="url" class="text-info">
                                         <img src="{{ $user->avatar_url }}"
                                              alt="{{ $user->name }}"
                                              class="float-left"

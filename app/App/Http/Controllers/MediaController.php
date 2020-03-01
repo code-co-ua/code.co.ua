@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Media;
+use Domain\User\Media;
 use Illuminate\Http\Request;
 use JD\Cloudder\Facades\Cloudder;
 use Illuminate\Support\Facades\Auth;

@@ -5,7 +5,7 @@
         </li>
         <li class="breadcrumb-item align-self-center">
             <a href="{{ route('courses.show', ['course' => $lesson->section->course_id]) }}">
-                {{ $lesson->section->course->name }}
+                {{ $course->name }}
             </a>
         </li>
         <li class="breadcrumb-item active align-self-center">

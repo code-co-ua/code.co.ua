@@ -1,4 +1,5 @@
 /node_modules
+/public/packages
 /public/fonts/*
 /public/js/*
 /public/css/*.css
@@ -11,6 +12,8 @@
 /.idea
 /.vscode
 /.vagrant
+Envoy*
+!Envoy.blade.php
 Homestead.json
 Homestead.yaml
 npm-debug.log
@@ -18,3 +21,4 @@ yarn-error.log
 .env
 .env.production
 deploy.php
+_ide_helper.php

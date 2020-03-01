@@ -2,7 +2,7 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 window.jsdiff = require('diff');
-var bsn = require('bootstrap.native/dist/bootstrap-native-v4');
+var bsn = require('bootstrap.native/dist/bootstrap-native');
 var marked = require('marked');
 
 import Toasted from 'vue-toasted';

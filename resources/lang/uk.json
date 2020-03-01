@@ -1,4 +1,10 @@
 {
+  "Loading": "Завантаження",
+  "Run container": "Запуск контейнера",
+  "Don't have account yet?": "Ще не маєте акаунта?",
+  "Login with Github": "Увійти через Github",
+  "Or": "Або",
+  "Servers": "Сервери",
   "A fresh verification link has been sent to your email address.": "Нове посилання для підтвердження електронної адреси було надіслане вам на пошту",
   "All rights reserved.": "Усі права захищені.",
   "Before proceeding, please check your email for a verification link.": "Перед продовженням, будь ласка перевірте електронну пошту з посиланням на підтвердження електронної адреси.",

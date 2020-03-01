@@ -1,0 +1,11 @@
+# TODO - setup start script
+tasks:
+  - init: composer install
+    command: cp .env.gitpod .env
+    command: php artisan key:generate --force
+    command: php artisan migrate --seed --force
+    command: php artisan storage:link
+    command: php artisan vendor:publish --tag=assets --force
+    command: php artisan serve --port=3000
+image:
+  file: .gitpod.Dockerfile

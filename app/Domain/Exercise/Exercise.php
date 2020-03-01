@@ -3,16 +3,29 @@
 namespace Domain\Exercise;
 
 use Domain\Lesson\Lesson;
+use Domain\User\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Exercise extends Model
+/**
+ * Relations
+ * @property Lesson $lesson
+ * @property User $user
+ * Fields
+ * @property string $title
+ * @property string $slug
+ * @property string $body
+ * @property int $language_id
+ * @property int $lesson_id
+ * @property int $user_id
+ */
+final class Exercise extends Model
 {
     protected $fillable = [
         'title',
+        'slug',
         'body',
-        'solution',
-        'output',
-        'language',
+        'language_id',
         'lesson_id',
         'user_id',
     ];
@@ -24,16 +37,11 @@ class Exercise extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(User::class);
     }
 
-    public static function boot()
+    public function instances(): HasMany
     {
-        parent::boot();
-
-        static::creating(function($table)
-        {
-            $table->user_id = auth()->id();
-        });
+        return $this->hasMany(Instance::class);
     }
 }

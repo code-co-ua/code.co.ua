@@ -13,7 +13,7 @@
             <div class="col-lg-4">
                 @include('courses._item', [
                     'course' => $course,
-                    'route' => route('courses.show', ['course' => $course->id])
+                    'route' => route('courses.show', ['course' => $course])
                 ])
             </div>
         @endforeach

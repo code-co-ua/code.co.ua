@@ -2,10 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Bootstrap & Tabler UI
-@import '~tabler-ui/src/assets/scss/variables';
 @import 'variables';
-@import '~bootstrap/scss/bootstrap';
-@import 'tabler';
+//@import 'tabler';
+@import "~tabler-ui/scss/variables";
+@import "~tabler-ui/scss/tabler";
 
 // Libraries
 @import '~prismjs/themes/prism-okaidia.css';
