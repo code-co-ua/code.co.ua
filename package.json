@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@voerro/vue-tagsinput": "github:voerro/vue-tagsinput",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "bootstrap.native": "git+https://github.com/thednp/bootstrap.native.git",
     "cross-env": "^5.2.1",
